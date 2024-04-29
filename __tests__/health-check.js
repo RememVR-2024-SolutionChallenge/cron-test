@@ -15,7 +15,7 @@ describe("Health check", () => {
       console.error("Gateway server health check failed:", error);
       throw error;
     }
-  });
+  }, 30000); // 30s timeout for cold start
 
   /* ------------------------- Ai Server Health Check. ------------------------ */
   // it("should return OK from gateway and ai server both, if ai server is healthy", async () => {
