@@ -1,6 +1,17 @@
 # cron-test
 
-tests and health checks by daily cron jobs
+> _tests and health checks by daily cron jobs_
+
+## How to run
+
+```bash
+$ git clone https://github.com/RememVR-2024-SolutionChallenge/cron-test.git
+$ cd cron-test
+$ npm install
+$ npm run test
+```
+
+`.env` is required to run this test.
 
 ## Health Check
 
@@ -11,7 +22,7 @@ tests and health checks by daily cron jobs
 - MySQL (dev) server
 - Redis (dev) server
 
-### Why we need health check by daily?
+## Why we need to check by daily?
 
 To find out the problem before the users do.
 
