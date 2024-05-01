@@ -18,21 +18,22 @@ describe("Health check", () => {
   }, 30000); // 30s timeout for cold start
 
   /* ------------------------- Ai Server Health Check. ------------------------ */
-  // it("should return OK from gateway and ai server both, if ai server is healthy", async () => {
-  //   try {
-  //     // from gateway
-  //     const gatewayResponse = await fetch(process.env.GATEWAY_SERVER_URL + "/ai");
-  //     const gatewayData = await gatewayResponse.json();
-  //     expect(gatewayData).toEqual("ok");
-  //     // from AI
-  //     const aiResponse = await fetch(process.env.AI_SERVER_URL + "/");
-  //     const aiData = await aiResponse.json();
-  //     expect(aiData.status).toEqual(200);
-  //   } catch (error) {
-  //     console.error("AI server health check failed:", error);
-  //     throw error;
-  //   }
-  // });
+  it("should return OK from gateway and ai server both, if ai server is healthy", async () => {
+    try {
+      // from gateway
+      const gatewayResponse = await fetch(
+        process.env.GATEWAY_SERVER_URL + "/ai"
+      );
+      const gatewayData = await gatewayResponse.json();
+      expect(gatewayData.message).toEqual("ok");
+      // from AI
+      const aiResponse = await fetch(process.env.AI_SERVER_URL + "/");
+      expect(aiResponse.ok).toEqual(true);
+    } catch (error) {
+      console.error("AI server health check failed:", error);
+      throw error;
+    }
+  }, 30000);
 
   /* --------------------- MySQL Dev-Server Health Check. --------------------- */
   it("should return OK if MySQL dev-server is healthy", async () => {
