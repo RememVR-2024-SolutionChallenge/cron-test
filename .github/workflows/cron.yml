@@ -2,8 +2,8 @@ name: RememVR Daily Check
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: "0 11,23 * 5-6 *"
+  # schedule:
+  #  - cron: "0 11,23 * 5-6 *"
 
 jobs:
   test:
